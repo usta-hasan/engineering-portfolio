@@ -1,23 +1,15 @@
-# Zakovat game electronics
+# Zakovat elektron qurilmasi
 
-A custom Arduino Nano PCB for a quiz-game device, with PC817 optocouplers and IRFZ44N switching devices. The native board includes two-sided routing and vias. The portfolio shows design evidence; it does not claim a verified winner-detection algorithm or a production-ready release without the corresponding firmware and hardware records.
+Zakovat o‘yini uchun Arduino Nano asosida maxsus elektron plata.
 
-## O‘zbekcha tavsif
+## Ishlar
 
-Zakovat o‘yini uchun elektron boshqarish va signalizatsiya qurilmasi.
+Kirish va chiqish signallarini mikrokontroller orqali boshqarish; optoajratish va quvvat kalitlari.
 
-Arduino Nano, optoajratish va quvvat kalitlari qatnashgan maxsus PCB. Asl platada ikki tomonlama yo‘llar va o‘tish teshiklari mavjud.
+## Texnologiyalar
 
-**Texnologiyalar:** EasyEDA Pro, Arduino Nano, PC817, IRFZ44N.
+Arduino Nano, PC817, IRFZ44N, EasyEDA Pro.
 
-**Algoritm:** Kirish signali → mikrokontroller mantiqi → ajratilgan/kalitlangan chiqish. Aniq tugma ustuvorligi algoritmi alohida firmware bilan tasdiqlanmagan.
+![Loyiha materiali](../../assets/zakovat_routing.png)
 
-**Shaxsiy hissa:** Foydalanuvchi ishlab chiqqan o‘yin qurilmasi; PCB loyiha fayli mavjud.
-
-**Natija va holat:** Zakovat CAD nusxasi: 87 ta top va 172 ta bottom LINE segmenti, 8 ta VIA. Bu sonlar ishlab chiqarilgan platalar sonini anglatmaydi. PCB loyihasi tasdiqlangan; yakuniy firmware va ishlayotgan qurilma videosi topilmadi.
-
-![Project illustration](../../assets/zakovat_routing.png)
-
-Native routing preview, not a fabrication output.
-
-Customer CAD sources and manufacturing outputs are not included. The preview cannot be used to manufacture a board.
+Tasvir native PCB yo‘llaridan olingan; pad va mis to‘ldirishlar ko‘rsatilmagan.

@@ -1,18 +1,49 @@
-# Research records
+# Fotoelektrik tizimlar monitoringi va diagnostikasi
 
-Research topic: development of monitoring and diagnostic systems for photovoltaic energy parameters. OAK registration B2024.1.PhD/T4467: https://oak.uz/userfiles/files/2024-1-son.pdf (page 185). The portfolio does not claim an awarded PhD.
+**Tadqiqotchi:** Sayfiyev Hasan Olim o‘g‘li.  
+**Ilmiy rahbar:** Maxmudov Maxsud Idrisovich.  
+**Ixtisoslik:** 05.05.06 — Qayta tiklanuvchi energiya qurilmalari.  
+**Mavzu:** Fotoelektrik batareyalarining energetik parametrlarini monitoring va diagnostika tizimini ishlab chiqish.  
+**OAK ro‘yxati:** B2024.1.PhD/T4467 — [2024-yil 1-son, 185-bet](https://oak.uz/userfiles/files/2024-1-son.pdf).
 
-## Registered software
+## Tadqiqot mazmuni
 
-- DGU 27454, registered 13 September 2023: software for measuring solar-panel characteristics and collecting data. Hasan Sayfiyev is the rights holder; Maxsud Maxmudov and Hasan Sayfiyev are recorded as authors.
-- DGU 27455, registered 13 September 2023: software for a solar-panel monitoring system. Hasan Sayfiyev is the rights holder; the author line names Maxsud Maxmudov.
+Fotoelektrik modul va stringlarning ishchi parametrlarini o‘lchash, ma’lumotlarni markaziy kontrollerga uzatish va dastur orqali kuzatish. O‘lchash bloklarida kuchlanish, tok, harorat va yoritilish ko‘rsatkichlari olinadi. Tadqiqotda tashqi muhit, changlanganlik va haroratning fotoelektrik modul ishiga ta’siri o‘rganiladi.
 
-These are software registration certificates, not invention patents.
+```mermaid
+flowchart LR
+  A[PV modul va sensorlar] --> B[Modul kontrolleri]
+  B --> C[String kontrolleri]
+  C --> D[Markaziy ma’lumot yig‘ish]
+  D --> E[Kompyuter monitoring dasturi]
+```
 
-## Patent applications
+## Texnik tarkib
 
-IAP 20240362 was filed in 2024; an examination inquiry dated 14 March 2025 is available. A grant has not been verified. A separate utility-model application, FAP 20230407, has a refusal decision. No granted patent is claimed.
+- Arduino Mega 2560 va ATtiny85 mikrokontrollerlari.
+- DS18B20 harorat sensori, BH1750 yoritilish sensori.
+- Tok va kuchlanish o‘lchash uchun shunt, LM358 va moslashtirish zanjirlari.
+- I²C va RS-485 orqali aloqa.
+- Delphi dasturi orqali ma’lumot yig‘ish va monitoring.
+- MATLAB/Simulink orqali PV xarakteristikalari va tashqi omillarni modellashtirish.
 
-## Implementation
+## Joriy etish
 
-Two implementation records dated 20 October 2025 and an Energy Ministry letter dated 26 June 2026 support practical deployment work. The percentages described as expected improvements in those records are not treated here as measured efficiency gains.
+Zarangari Transgazstroy va Buxoro davlat pedagogika instituti maydonlaridagi ishlar bo‘yicha 20.10.2025 sanali dalolatnomalar mavjud. Energetika vazirligining 26.06.2026 sanali 02-11-3300 xati joriy etish bilan bog‘liq ma’lumotlarni qayd etadi.
+
+## Ilmiy nashrlar
+
+- PV monitoring va diagnostika qurilmasi: [Fan va texnologiyalar taraqqiyoti, 2/2025](https://journal.bstu.uz/public/article/84/).
+- Quyosh intensivligini kuzatish qurilmasi: [Fan va texnologiyalar taraqqiyoti, 1/2025](https://journal.bstu.uz/public/article/31/).
+- Yorug‘lik nurlanishi intensivligi: [IJARSET, 2024](https://www.ijarset.com/upload/2024/december/4-hasansoftware-03-revised.pdf).
+- Quyosh elektr stansiyasida aktiv va reaktiv quvvat balansi: [AIP Conference Proceedings, 2025](https://doi.org/10.1063/5.0306232).
+
+[16 ta nashrning to‘liq ro‘yxati](PUBLICATIONS.md).
+
+## Dastur guvohnomalari va talabnoma
+
+| Hujjat | Mazmun | Hasan Sayfiyevning ishtiroki |
+|---|---|---|
+| DGU 27454, 13.09.2023 | Quyosh panellari xususiyatlarini o‘lchovchi va ma’lumotlarni yig‘uvchi dastur | Huquq egasi; Maxmudov M.I. bilan hammuallif |
+| DGU 27455, 13.09.2023 | Quyosh panellarining nazoratini monitoring tizimi uchun dasturiy ta’minoti | Huquq egasi; guvohnomada muallif Maxmudov M.I. |
+| IAP 20240362, 25.06.2024 | Quyosh elektr stansiyalari parametrlarini diagnostika va monitoring qilish tizimi | Patent talabnomasi; 14.03.2025 ekspertiza yozishmasi mavjud |

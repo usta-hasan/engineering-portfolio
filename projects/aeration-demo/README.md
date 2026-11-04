@@ -1,29 +1,24 @@
-# Arduino and Delphi aeration demonstrator
+# Arduino va Delphi asosidagi aeratsiya demonstratori
 
-A Windows Delphi application controls four DC motor channels through an Arduino Nano and two L298N drivers. Serial packets use JSON over 9600 8N1. The oxygen value is simulated: no real dissolved-oxygen sensor is integrated. Existing project records report a Delphi Win32 build, 26 regression checks and an AVR compile. Selected application and firmware sources are included; no hardware test or firmware upload is claimed.
+Delphi VCL dasturidan Arduino Nano ga USB serial orqali buyruq yuborib, to‘rtta motor kanalini boshqarish. L298N drayverlari va JSON paketlari ishlatilgan.
 
-## O‘zbekcha tavsif
+## Ishlashi
 
-To‘rtta motor tezligini Windows dasturidan boshqarish va avtomatik/manual rejimni namoyish qilish.
+MANUAL rejimida motor qiymatlari qo‘lda kiritiladi. AUTO rejimida dastur model bo‘yicha qiymatlarni hisoblaydi. Nano paketni tekshiradi va 0–100% buyruqni PWM chiqishlariga o‘tkazadi. O₂ ko‘rsatkichi demonstratorda simulyatsiya qilinadi.
 
-Delphi VCL interfeysi USB serial orqali Nano ga qat’iy JSON paketlarini yuboradi. Nano ikkita L298N orqali to‘rtta DC motor kanalini boshqaradi.
+![Arxitektura](../../assets/architecture_3.png)
 
-**Texnologiyalar:** Delphi/Object Pascal, Windows serial API, Arduino C++, Nano, 2×L298N, JSON, 9600 8N1.
+## Texnik tarkib
 
-**Algoritm:** MANUAL qiymat yoki AUTO hisob → 0–100% qiymatlar → JSON → parser tekshiruvi → PWM → tasdiq paketi. O₂ ko‘rsatkichi dasturiy modeldan olinadi.
+- Delphi/Object Pascal, Windows serial API.
+- Arduino Nano, ikkita L298N va to‘rtta DC motor kanali.
+- 9600 baud, 8N1, JSON va tasdiq paketi.
+- Arduino tomonida qat’iy parser va bufer nazorati.
 
-**Shaxsiy hissa:** Arduino–Delphi integratsiyasi, serial protokol, GUI va boshqaruv mantiqi; AI yordamidagi takomillashtirish va sinov qaydlari mavjud.
+## Kod va ulanish
 
-**Natija va holat:** Mavjud qaydlarda Delphi Win32 build, 26 regressiya tekshiruvi va Nano kompilyatsiyasi muvaffaqiyatli. Arduino: 3548 bayt flash, 349 bayt RAM. Real O₂ sensori ulanmagan; firmware upload qilinmagan. Namoyish tizimi. O₂ qiymati simulyatsiya, o‘lchangan biologik ko‘rsatkich emas.
+- [Arduino kodi](source/Akvarium/Akvarium.ino)
+- [Delphi manbalari](source/Delphi)
+- [Ulanish va muhit talablari](SETUP.md)
 
-## Architecture
-
-```mermaid
-flowchart LR
-A[Delphi interface] -->|USB serial JSON| B[Arduino Nano]
-B --> C[Two L298N drivers]
-C --> D[Four DC motors]
-A --> E[Simulated oxygen model]
-```
-
-[Setup and pin map](SETUP.md)
+Loyiha qaydida Delphi Win32 build, 26 regressiya tekshiruvi va AVR kompilyatsiyasi mavjud.

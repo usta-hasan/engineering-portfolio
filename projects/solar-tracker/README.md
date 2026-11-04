@@ -1,29 +1,23 @@
-# Two-axis solar tracker manual controller
+# Quyosh trekerining ikki o‘qli qo‘lda boshqaruvi
 
-Arduino Nano firmware for manual two-axis relay control, with a 700 ms reversal interlock, limit handling and a 60 s run timeout. RTC calculations are displayed for information; automatic solar tracking is not implemented. Existing project records report 51/51 host tests and 36,581 display assertions. Hardware validation remains outstanding. Selected source files are included under source/Solar_tracker; external libraries are not bundled.
+Arduino Nano asosidagi MANUAL V7 boshqaruvi. Tugmalar yordamida ikki o‘qdagi motorlar rele orqali boshqariladi; limitlar va revers blokirovkasi ishlatiladi.
 
-## O‘zbekcha tavsif
+## Funksiyalar
 
-Ikki o‘qli mexanizmni tugmalar, limitlar va revers blokirovkasi orqali boshqarish.
+- Tugmani ushlab turib harakatlantirish va qo‘yib yuborilganda to‘xtatish.
+- Double-click orqali yo‘nalishni ushlab turish.
+- Reversdan oldin 700 ms kutish; 60 s uzluksiz yurish cheklovi.
+- Limit va qarama-qarshi buyruqlarni nazorat qilish.
+- MID tugmasi orqali STOP va LCD sahifalarini almashtirish.
+- DS3231 va LCD orqali vaqt va hisobiy ma’lumotlarni ko‘rsatish.
 
-Har o‘q uchun boshqaruv holatlari; 700 ms revers kutish, 60 s uzluksiz yurish cheklovi, limit nazorati va MID STOP. RTC/LCD hisoblari axborot uchun.
+Joriy versiya qo‘lda boshqaruv uchun. Avtomatik quyosh kuzatish rejimi qo‘shilmagan.
 
-**Texnologiyalar:** Arduino Nano ATmega328P, C++, OneButton 2.6.2, DS3231, LCD 1602 I²C, to‘rtta rele.
+![Arxitektura](../../assets/architecture_2.png)
 
-**Algoritm:** Tugma va limitlar → debounce → boshqaruv holati → yo‘nalish blokirovkasi → rele chiqishlari; LCD/RTC ma’lumoti alohida yangilanadi.
+## Manbalar
 
-**Shaxsiy hissa:** Boshqaruv firmware’i, pin xaritasi, ish algoritmi va loyiha hujjatlari; saqlangan ishlab chiqish tarixida AI yordamidagi kod tekshiruvi ham mavjud.
+- [Firmware](source/Solar_tracker)
+- [Ulanish va ishga tushirish](SETUP.md)
 
-**Natija va holat:** Mavjud test qaydida 51/51 host sinovi, 36 581 displey tekshiruvi va ikki Nano bootloader konfiguratsiyasi uchun kompilyatsiya qayd etilgan. Ushbu portfolio seansida bu testlar qayta bajarilmadi; apparat sinovi va upload qayd etilmagan. MANUAL firmware. Avtomatik quyosh kuzatish hali amalga oshirilmagan.
-
-## Architecture
-
-```mermaid
-flowchart LR
-A[Buttons and limits] --> B[State controller]
-B --> C[Relay outputs]
-C --> D[Two axes]
-E[DS3231] --> F[LCD information]
-```
-
-[Setup and pin map](SETUP.md)
+Loyiha test qaydida 51/51 host testi, 36 581 displey tekshiruvi va AVR kompilyatsiyasi bor. Jismoniy rele/motor sinovlari alohida bajariladi.
